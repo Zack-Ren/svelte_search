@@ -1,2 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    import Search from "./Search.svelte";
+</script>
+
+<div class="flex h-screen">
+    <Search/>
+</div>
+
+<style lang="postcss">
+    :global(body) {
+        background-color: rgb(2 6 23)
+    }
+</style>
