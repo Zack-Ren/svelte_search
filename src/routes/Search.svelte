@@ -2,14 +2,14 @@
     import { debounce } from "lodash";
     import Item from "./Item.svelte";
     import { data } from "./mockData";
-	import { select_option } from "svelte/internal";
 
     let filteredResults:string[] = [];
     let inputValue:string = "";
     let searchInput:any;
     let idx:number = -1;
 
-    const filterResults = debounce(() => {
+    async function fetchResults() {
+        await new Promise((resolve) => setTimeout(resolve, 20));
         let tempArr:string[] = [];
         if (inputValue) {
             data.forEach(d => {
@@ -18,9 +18,11 @@
                 }
             });
         }
-        //tempArr.length > 0 ? filteredResults = tempArr.slice(0, 8) : filteredResults = ["No results found"];
+        // tempArr.length > 0 ? filteredResults = tempArr.slice(0, 8) : filteredResults = ["No results found"];
         filteredResults = tempArr.slice(0,10);
-    }, 1000)
+    }
+
+    const filterResults = debounce(() => {fetchResults()}, 1000)
     
     $: if (!inputValue) {
         filteredResults = [];
