@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { debounce } from "lodash";
+    import debounce from "lodash/debounce";
     import Item from "./Item.svelte";
     import { data } from "./mockData";
 
@@ -108,8 +108,8 @@
         padding: 0;
         top: 0;
         width: 100%;
-        border-bottom-right-radius: 0.5rem;
-        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.6rem;
+        border-bottom-left-radius: 0.6rem;
         background-color: #ddd;
     }
 
